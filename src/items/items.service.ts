@@ -3,7 +3,8 @@ import { Item } from './interface/item.interface';
 
 @Injectable()
 export class ItemsService {
-    private readonly item:Item [] = [
+
+    private readonly items:Item [] = [
         {
             id : "24w567",
             name: "Etukudo",
@@ -11,10 +12,18 @@ export class ItemsService {
             description: 'like it'
         },
         {
-            id : "24w67",
+            id : " 24w67",
             name: "Edoho",
             quantity: 6,
             description: 'like it do it'
         }
-    ]
+    ];
+
+    findAll(): Item[] {
+        return this.items;
+    }
+
+    findbyId(id:string):Item {
+        return this.items.find(item => item.id === id);
+    }
 }
